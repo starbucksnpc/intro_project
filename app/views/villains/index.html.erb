@@ -1,0 +1,9 @@
+<h1>Villains</h1>
+
+<% @villains.each do |villain| %>
+  <div>
+    <p>Name: <%= villain.name %></p>
+    <p>Gender: <%= villain.gender %></p>
+    <p>Status: <%= villain.status %></p>
+  </div>
+<% end %>
