@@ -1,0 +1,10 @@
+<h1>Shorts</h1>
+
+<% @shorts.each do |short| %>
+  <div>
+    <p>Title: <%= short.title %></p>
+    <p>Type: <%= short.short_type %></p>
+    <p>Handle: <%= short.handle %></p>
+    <p>Year: <%= short.year %></p>
+  </div>
+<% end %>
