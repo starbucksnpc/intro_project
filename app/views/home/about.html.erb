@@ -1,30 +1,48 @@
 <h1>Describe Datasets</h1>
 
-<p>Welcome to my application! I manage a collection of books, short stories, and villains.</p>
+<p>The data for this project involves information about books, villains, and short stories authored by Stephen King, sourced from separate external APIs. Here's a detailed description of the data structure and the required database tables:</p>
 
-<h3>Books</h3>
+<h3>Books Data</h3>
 <ul>
-  <li>Attributes: Title, Year, Pages</li>
+  <li>Source: External API providing details of books by Stephen King.</li>
+  <li>Structure: Each book entry includes fields such as ID, year of publication, title, and number of pages.</li>
+  <li>Database Table: book</li>
+  <li>Columns: id(integer, primary key), title(string), year(integer), pages(integer)</li>
   <li>Associations: Linked to various villains</li>
 </ul>
 
-<h3>Shorts</h3>
+<h3>Shorts Data</h3>
 <ul>
-  <li>Attributes: Title, Type, Handle, Year</li>
+  <li>Source: External API providing details of short stories by Stephen King.</li>
+  <li>Structure: Each short story entry includes fields such as ID, title, type (e.g., short story, novella), handle, and year of publication.</li>
+  <li>Database Table: short</li>
+  <li>Columns: id(integer, primary key), title(string), type(string), handle(string), year(integer)</li>
   <li>Associations: Linked to various villains</li>
 </ul>
 
-<h3>Villains</h3>
+<h3>Villains Data</h3>
 <ul>
-  <li>Attributes: Name, Gender, Status</li>
+  <li>Source: External API providing information about villains from Stephen King's works.</li>
+  <li>Structure: Each villain entry includes fields such as ID, name, gender, and status.</li>
+  <li>Database Table: villain</li>
+  <li>Columns: id(integer, primary key), name(string), gender(string), status(string)</li>
   <li>Associations: Associated with both books and shorts</li>
 </ul>
 
 <h3>Data Integration and Relationships</h3>
 <ul>
-<li>Books and Villains: Establish a many-to-many relationship using a join table (book_villains). This table will connect books and villains based on their IDs, allowing each book to have multiple villains and vice versa.</li>
-<li>Shorts and Villains: Similarly, establish a many-to-many relationship using another join table (shorts_villains). This table will connect shorts and villains, enabling each short story to have multiple villains and each villain to appear in multiple short stories.</li>
+<h3>-Book and Villain:</h3>
+<li>Establish a many-to-many relationship using a join table (book_villains). This table will connect books and villains based on their IDs, allowing each book to reference multiple villains and vice versa.
+<h4>Join Table: book_villains</h4>
+<li>book_id (integer, foreign key referencing book.id)</li>
+<li>villain_id (integer, foreign key referencing villains.id)</li>
+
+<h3>-Shorts and Villains:</h3>
+<li>Similarly, establish a many-to-many relationship using another join table (short_villains). This table will connect short and villain, enabling each short story to have multiple villains and each villain to appear in multiple short stories.</li>
+<h4>Join Table: short_villains</h4>
+<li>short_id (integer, foreign key referencing short.id)</li>
+<li>villain_id (integer, foreign key referencing villain.id)</li>
+
 <li>Integration: Utilize unique identifiers (IDs or URLs) provided by each API to link data across different tables. For example, link villains to specific books and shorts based on the URLs or IDs provided in the API responses.</li>
-<p>By structuring the database with these tables and relationships, we can effectively store and manage data about books, villains, and shorts from external sources while ensuring the flexibility to query and display relationships between these entities in our application.
-</p>
+<p>This approach ensures that relationships between books, villains, and short stories are accurately represented and maintained in the database.</p>
 

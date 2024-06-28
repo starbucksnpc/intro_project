@@ -1,6 +1,3 @@
-# db/seeds.rb
-
-
 def seed_books
   books_array = StephenKingApiService.fetch_books
   books_array.each do |book_data|
