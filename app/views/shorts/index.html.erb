@@ -2,7 +2,7 @@
 
 <% @shorts.each do |short| %>
   <div>
-    <p>Title: <%= short.title %></p>
+    <p>Title: <%= link_to short.title, short_path(short) %></p>
     <p>Type: <%= short.short_type %></p>
     <p>Handle: <%= short.handle %></p>
     <p>Year: <%= short.year %></p>

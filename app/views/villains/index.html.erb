@@ -2,7 +2,7 @@
 
 <% @villains.each do |villain| %>
   <div>
-    <p>Name: <%= villain.name %></p>
+    <p>Name: <%= link_to villain.name, villain_path(villain) %></p>
     <p>Gender: <%= villain.gender %></p>
     <p>Status: <%= villain.status %></p>
   </div>
