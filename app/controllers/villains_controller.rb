@@ -1,6 +1,6 @@
 class VillainsController < ApplicationController
   def index
-    @villains = Villain.all
+    @villains = Villain.page(params[:page]).per(10)
   end
 
   def show

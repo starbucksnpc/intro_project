@@ -1,6 +1,6 @@
 class ShortsController < ApplicationController
   def index
-    @shorts = Short.all
+    @shorts = Short.page(params[:page]).per(10)
   end
 
   def show
