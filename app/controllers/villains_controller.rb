@@ -1,6 +1,11 @@
 class VillainsController < ApplicationController
   def index
-    @villains = Villain.page(params[:page]).per(10)
+    if params[:query].present?
+      query = "%#{params[:query].downcase}%"
+      @villains = Villain.where('LOWER(name) LIKE ?', query).page(params[:page]).per(10)
+    else
+      @villains = Villain.page(params[:page]).per(10)
+    end
   end
 
   def show
