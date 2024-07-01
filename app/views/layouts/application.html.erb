@@ -11,19 +11,23 @@
 
 <body>
 <header>
-    <nav>
-
-      <!-- Search Form -->
-      <%= form_with url: villains_path, method: :get, local: true do %>
-        <%= label_tag :query, "Search by villain's name:" %>
-        <%= text_field_tag :query, params[:query] %>
-        <%= submit_tag "Search" %>
-      <% end %>
+  <nav>
+    <!-- Search Form -->
+    <%= form_with url: villains_path, method: :get, local: true do %>
+      <%= label_tag :query, "Search by villain's name:" %>
+      <%= text_field_tag :query, params[:query] %>
       
-    </nav>
-  </header>
+      <%= label_tag :gender, "Filter by gender:" %>
+      <%= select_tag :gender, options_for_select(@genders, params[:gender]), include_blank: true %>
+      
+      <%= submit_tag "Search" %>
+    <% end %>
+    
+    
+  </nav>
+</header>
 
-  <%= render 'shared/nav' %>
-  <%= yield %>
+<%= render 'shared/nav' %>
+<%= yield %>
 </body>
 </html>
