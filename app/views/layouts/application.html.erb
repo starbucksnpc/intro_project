@@ -22,16 +22,15 @@
       
       <%= submit_tag "Search" %>
     <% end %>
-    
-    
   </nav>
 </header>
 
 <%= render 'shared/nav' %>
 <%= yield %>
 
+<!-- 여기서 빌런 목록을 조건문을 사용하여 표시합니다 -->
 <div>
-  <% if @villains.any? %>
+  <% if defined?(@villains) && @villains.present? %>
     <ul>
       <% @villains.each do |villain| %>
         <li>
@@ -51,6 +50,5 @@
     <p>No villains found.</p>
   <% end %>
 </div>
-
 </body>
 </html>
