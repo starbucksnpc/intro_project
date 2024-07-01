@@ -29,5 +29,28 @@
 
 <%= render 'shared/nav' %>
 <%= yield %>
+
+<div>
+  <% if @villains.any? %>
+    <ul>
+      <% @villains.each do |villain| %>
+        <li>
+          <%= link_to villain.name, villain_path(villain) %>
+          <ul>
+            <% villain.books.each do |book| %>
+              <li><%= link_to book.title, book_path(book) %></li>
+            <% end %>
+            <% villain.shorts.each do |short| %>
+              <li><%= link_to short.title, short_path(short) %></li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No villains found.</p>
+  <% end %>
+</div>
+
 </body>
 </html>
