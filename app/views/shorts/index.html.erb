@@ -1,5 +1,7 @@
 <h1>Shorts</h1>
 
+<%= paginate @shorts %>
+
 <% @shorts.each do |short| %>
   <div>
     <p>Title: <%= link_to short.title, short_path(short) %></p>
@@ -9,4 +11,3 @@
   </div>
 <% end %>
 
-<%= paginate @shorts %>

@@ -1,5 +1,7 @@
 <h1>Villains</h1>
 
+<%= paginate @villains %>
+
 <% @villains.each do |villain| %>
   <div>
     <p>Name: <%= link_to villain.name, villain_path(villain) %></p>
@@ -8,4 +10,3 @@
   </div>
 <% end %>
 
-<%= paginate @villains %>

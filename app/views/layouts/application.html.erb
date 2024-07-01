@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Villains Database</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -10,7 +13,7 @@
 </head>
 
 <body>
-<header>
+
   <nav>
     <!-- Search Form -->
     <%= form_with url: villains_path, method: :get, local: true do %>
@@ -23,12 +26,12 @@
       <%= submit_tag "Search" %>
     <% end %>
   </nav>
-</header>
+
 
 <%= render 'shared/nav' %>
 <%= yield %>
 
-<!-- 여기서 빌런 목록을 조건문을 사용하여 표시합니다 -->
+<!-- Erd Conditional -->
 <div>
   <% if defined?(@villains) && @villains.present? %>
     <ul>
