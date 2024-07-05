@@ -11,7 +11,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-  
+
   <nav>
     <!-- Search Form -->
     <%= form_with url: villains_path, method: :get, local: true do %>
@@ -30,13 +30,7 @@
 <%= yield %>
 
 
-<!-- Add Image -->
-<div class="header-image">
-  <%= image_tag 'erd.png', alt: 'ERD Image' %>
-</div>
-
-
-<!-- Erd Conditional -->
+<!-- Erb Conditional -->
 <div>
   <% if defined?(@villains) && @villains.present? %>
     <ul>
