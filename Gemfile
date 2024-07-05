@@ -68,4 +68,4 @@ end
 
 gem 'httparty', '~> 0.22.0'
 
-gem 'kaminari', '~> 1.2.0'
+gem 'kaminari', '~> 1.2.2'
